@@ -1,6 +1,7 @@
 
 const testcase1 = require('./testcase1.json');
 const testcase2 = require('./testcase2.json');
+const testcase3 = require('./testcase3.json');
 
 
 function decodeValue(base, value) {
@@ -45,12 +46,18 @@ function findSecret(jsonData) {
 
    
     points.sort((a, b) => a[0] - b[0]);
+    
     const selectedPoints = points.slice(0, k);
 
     
+
+    
     const secret = lagrangeInterpolation(selectedPoints);
+    
     return secret;
 }
 
 console.log("Secret for Test Case 1:", findSecret(testcase1));
 console.log("Secret for Test Case 2:", findSecret(testcase2));
+console.log("Secret for Test Case 3:", findSecret(testcase3));
+
